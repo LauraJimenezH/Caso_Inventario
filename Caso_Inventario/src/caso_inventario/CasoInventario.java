@@ -13,11 +13,49 @@ import java.util.Scanner;
  */
 public class CasoInventario {
 
-    /**
-     * @param args the command line arguments
-     */
+    
+     public static double calcularDescuento(int cantidadProducto) {
+        double descuento = 0;
+
+        if (cantidadProducto > 50) {
+            descuento = 10;
+        } else if (cantidadProducto > 100) {
+            descuento = 20;
+        } else if (cantidadProducto <= 50) {
+            descuento = 0;
+        }
+        return descuento;
+    }
+
+    public static double valorTotalConDescuento(int cantidadProducto, double precioProducto, double descuento) {
+        double valorTotalSinDescuento = cantidadProducto * precioProducto;
+        return valorTotalSinDescuento - (valorTotalSinDescuento * (descuento / 100));
+    }
+
+    public static void resumenProducto(String nombreProducto, int cantidadProducto, double precioProducto, int categoriaProducto) {
+
+        System.out.printf("\nProducto:  %s", nombreProducto);
+        System.out.printf("\nCantidad: %d", cantidadProducto);
+        System.out.printf("\nPrecio unitario: %.2f%n", precioProducto);
+        System.out.printf("Valor total antes de descuentos: %.2f%n", cantidadProducto * precioProducto);
+        System.out.printf("Descuento aplicado: %.0f%n", calcularDescuento(cantidadProducto));
+        System.out.printf("Valor total despues de descuentos: %.2f%n", valorTotalConDescuento(cantidadProducto, precioProducto, calcularDescuento(cantidadProducto)));
+
+        String mensaje = switch (categoriaProducto) {
+            case 1 ->
+                "Producto electronico. Revisar garantia.";
+            case 2 ->
+                "Producto alimenticio. Revisar fecha de caducidad.";
+            case 3 ->
+                "Producto de ropa. Revisar tallas disponibles.";
+            default ->
+                "Opcion no valida.";
+        };
+
+        System.out.printf(mensaje);
+    }
+    
     public static void main(String[] args) {
-        // TODO code application logic here
         Scanner lector = new Scanner(System.in);
 
         System.out.println("Ingrese el nombre del producto #1:");
@@ -32,6 +70,7 @@ public class CasoInventario {
         System.out.println("Ingrese la categoria del producto #1 (1: Electronicos, 2: Alimentos, 3: Ropa):");
         int categoriaProducto1 = lector.nextInt();
 
+        resumenProducto(nombreProducto1, cantidadProducto1, precioProducto1, categoriaProducto1);
         lector.nextLine();
 
         System.out.println("\n\nIngrese el nombre del producto #2:");
@@ -46,6 +85,7 @@ public class CasoInventario {
         System.out.println("Ingrese la categoria del producto #2 (1: Electronicos, 2: Alimentos, 3: Ropa):");
         int categoriaProducto2 = lector.nextInt();
 
+        resumenProducto(nombreProducto2, cantidadProducto2, precioProducto2, categoriaProducto2);
         lector.nextLine();
 
         System.out.println("\n\nIngrese el nombre del producto #3:");
@@ -60,6 +100,7 @@ public class CasoInventario {
         System.out.println("Ingrese la categoria del producto #3 (1: Electronicos, 2: Alimentos, 3: Ropa):");
         int categoriaProducto3 = lector.nextInt();
 
+        resumenProducto(nombreProducto3, cantidadProducto3, precioProducto3, categoriaProducto3);
         lector.nextLine();
 
         System.out.println("\n\nIngrese el nombre del producto #4:");
@@ -74,6 +115,7 @@ public class CasoInventario {
         System.out.println("Ingrese la categoria del producto #4 (1: Electronicos, 2: Alimentos, 3: Ropa):");
         int categoriaProducto4 = lector.nextInt();
 
+        resumenProducto(nombreProducto4, cantidadProducto4, precioProducto4, categoriaProducto4);
         lector.nextLine();
 
         System.out.println("\n\nIngrese el nombre del producto #5:");
@@ -87,6 +129,9 @@ public class CasoInventario {
 
         System.out.println("Ingrese la categoria del producto #5 (1: Electronicos, 2: Alimentos, 3: Ropa):");
         int categoriaProducto5 = lector.nextInt();
+
+        resumenProducto(nombreProducto5, cantidadProducto5, precioProducto5, categoriaProducto5);
+
     }
     
 }
