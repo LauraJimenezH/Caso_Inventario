@@ -56,8 +56,8 @@ public class CasoInventario {
     }
     
     public static void main(String[] args) {
-        double totalMontoInventario;
-        
+        double totalMontoInventario = 0;
+
         Scanner lector = new Scanner(System.in);
 
         System.out.println("Ingrese el nombre del producto #1:");
@@ -133,7 +133,7 @@ public class CasoInventario {
         int categoriaProducto5 = lector.nextInt();
 
         resumenProducto(nombreProducto5, cantidadProducto5, precioProducto5, categoriaProducto5);
-        
+
         System.out.println("\n\nResumen del inventario:");
         System.out.printf("\n1. %s - Valor total despues de descuentos: %.2f%n", nombreProducto1, valorTotalConDescuento(cantidadProducto1, precioProducto1, calcularDescuento(cantidadProducto1)));
         System.out.printf("2. %s - Valor total despues de descuentos: %.2f%n", nombreProducto2, valorTotalConDescuento(cantidadProducto2, precioProducto2, calcularDescuento(cantidadProducto2)));
@@ -146,6 +146,6 @@ public class CasoInventario {
         System.out.printf("\nEl valor total del inventario es: %.2f%n", totalMontoInventario);
         if (totalMontoInventario > 500) {
             System.out.println("\nAtencion: Se recomienda reducir el inventario ya que el valor total supera los 500 soles.");
-        }
+        }
     }
 }
