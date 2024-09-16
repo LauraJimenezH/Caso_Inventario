@@ -1,5 +1,7 @@
 # Caso_Inventario
 
+## YOUTUBE LINK: https://www.youtube.com/watch?v=PEWz1NGUrhQ
+
 # Tarea en Grupo: Programa de Control de Inventario Básico con Clasificación de Productos
 
 ## Objetivo:
